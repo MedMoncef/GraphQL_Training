@@ -11,6 +11,5 @@ admin.site.index_title = "graphql_backend"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('product/', include('posts.urls')),
     path('graphql/', FileUploadGraphQLView.as_view(graphiql=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

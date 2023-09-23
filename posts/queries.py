@@ -1,10 +1,18 @@
 import graphene
-from .types import PostType
-from .models import Post
+from .types import PostType,CategoryType
+from .models import Post,Category
 
 
 class Query(object):
-    all_posts = graphene.List(PostType)
+    posts = graphene.List(PostType)
+    categories = graphene.List(CategoryType)
+    active_categories = graphene.List(CategoryType)
     
-    def resolve_all_posts(self, info):
+    def resolve_posts(self, info):
         return Post.objects.all()
+    
+    def resolve_active_categories(self, info):
+        return Category.objects.filter(is_active=True)
+    
+    def resolve_categories(self, info):
+        return Category.objects.all()

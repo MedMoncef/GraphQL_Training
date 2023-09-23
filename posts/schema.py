@@ -9,6 +9,7 @@ class Query(posts.queries.Query, graphene.ObjectType):
 
 class Mutation(graphene.ObjectType):
     create_post = posts.mutations.CreatePost.Field()
+    create_category = posts.mutations.CreateCategory.Field()
     update_post = posts.mutations.UpdatePost.Field()
     delete_post = posts.mutations.DeletePost.Field()
 
